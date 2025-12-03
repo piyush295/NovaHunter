@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Advanced Hacking Integration Extension",
+  "version": "1.0",
+  "description": "Integrates with Shodan, Nuclei, and other tools for site exposure and scanning.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "tabs",
+    "webRequest",
+    "*://*.shodan.io/*",
+    "*://*.nuclei.projectdiscovery.io/*"  
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}
